@@ -1,0 +1,42 @@
+body {
+    font-family: 'ubuntu';
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1181px;
+    height: 58px;
+    margin: 53px 10vw 117px 10vw;
+}
+.logo-container {
+
+    display: flex;
+    gap: 25px;
+}
+.list-container {
+    display: flex;
+    list-style: none;
+    gap: 37px;
+}
+.title {
+    font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+color: #202020;
+}
+.nav-button {
+    border: none;
+    background: #5528ff;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    width: 100px;
+    height: 24px;
+    color: #ffffff;
+}
