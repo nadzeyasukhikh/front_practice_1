@@ -1,5 +1,5 @@
 body {
-    font-family: 'ubuntu';
+    font-family: Ubuntu; 
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -7,7 +7,7 @@ body {
 .header-container {
     display: flex;
     justify-content: space-between;
-    max-width: 1181px;
+    width: auto;
     height: 58px;
     margin: 53px 10vw 117px 10vw;
 }
@@ -39,4 +39,17 @@ color: #202020;
     width: 100px;
     height: 24px;
     color: #ffffff;
+}
+.footer-conteiner {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 58px;
+    margin: 53px 386px 117px 10vw;
+}
+.icons {
+    display: flex;
+    height: 24px;
+    width: 24px;
+    gap: 40px;
 }
