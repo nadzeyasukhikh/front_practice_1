@@ -22,6 +22,10 @@ body {
   display: flex;
   list-style: none;
   gap: 37px;
+  
+}
+a {
+  text-decoration: none;
 }
 .title {
   font-style: normal;
