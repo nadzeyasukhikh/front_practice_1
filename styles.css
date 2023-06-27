@@ -1,8 +1,10 @@
 body {
+  
   font-family: Ubuntu;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
 }
 .header-container {
   display: flex;
@@ -40,8 +42,7 @@ body {
   color: #ffffff;
 }
 .content {
-  max-width: 1181px;
-  height: 427px;
+  
   width: 70%;
   margin: 117px 10% 117px 10%;
 }
@@ -63,7 +64,7 @@ body {
 }
 
 p {
-  width: 741px;
+  max-width: 741px;
   height: 196px;
   left: calc(50% - 741px / 2 - 219.5px);
   top: 329px;
@@ -96,6 +97,72 @@ p {
   margin-top: 70px;
 }
 
+.spliter {
+  display: flex;
+  
+}
+.left-border {
+  width: 181px;
+height: 0.5px;
+flex-shrink: 0;
+background: #C2C2C2;
+margin: 10px 0 129px 0;
+}
+.right-border {
+  width: 1420px;
+height: 0.5px;
+flex-shrink: 0;
+background: #C2C2C2;
+margin: 10px 0 129px 0;;
+
+}
+.border-text {
+  color: #C2C2C2;
+font-size: 14px;
+font-family: Ubuntu;
+font-weight: 300;
+margin: 0 29px 0;
+}
+
+
+.socialmedia-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.services-container {
+ margin: 0 10% 200px 10%;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 82px 258px;
+ 
+}
+.single-service-container {
+  display: flex;
+  
+  max-width: 480px;
+}
+.service-title {
+  color: #000;
+font-size: 28px;
+font-family: Ubuntu;
+
+}
+.service-text {
+  color: #B2B2B2;
+font-size: 14px;
+font-family: Ubuntu;
+font-style: normal;
+
+}
+.service-img {
+  margin-top: 70px;
+}
+.service-title-text {
+  margin-left: 67px;
+ 
+}
+
 .footer-container {
   position: fixed;
   bottom: 0;
@@ -109,7 +176,4 @@ p {
   width: 80%;
   max-width: 1181px;
 }
-.socialmedia-container {
-  display: flex;
-  gap: 40px;
-}
+
