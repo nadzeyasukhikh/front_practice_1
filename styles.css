@@ -154,16 +154,19 @@ font-family: Ubuntu;
 }
 .service-text {
   color: #B2B2B2;
-font-size: 14px;
+font-size: 18px;
 font-family: Ubuntu;
 font-style: normal;
+line-height: 1.5;
 
 }
 .service-img {
   margin-top: 70px;
+  width: 60px;
 }
 .service-title-text {
-  margin-left: 67px;
+  margin-left: 50px;
+ width: 400px;
  
 }
 
