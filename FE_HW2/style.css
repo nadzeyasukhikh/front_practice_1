@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+  }
+  
+  nav li {
+    margin-right: 10px;
+    flex-grow: 1;
+  }
+  
+  @media (max-width: 800px) {
+    nav {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    nav ul {
+      display: none;
+    }
+    header::after {
+      content: "Новости";
+      display: block;
+      padding: 10px;
+      text-align: center;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  
