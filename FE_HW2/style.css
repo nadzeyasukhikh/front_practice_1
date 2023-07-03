@@ -28,7 +28,7 @@ header {
   }
   
   @media (max-width: 800px) {
-    nav {
+    nav ul {
       flex-direction: column;
     }
   }
