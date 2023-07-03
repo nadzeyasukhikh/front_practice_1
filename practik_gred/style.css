@@ -1,0 +1,36 @@
+
+
+.grid-container {
+    height: 800px;
+    display: grid;
+    grid-template-columns: minmax(100px,200px) minmax(100px,300px) minmax(100px,200px);
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 20px;
+    column-gap: 30px;
+    /* gap: 10px; */
+}
+
+.grid-item {
+    background-color: rgb(144, 170, 82);
+    padding: 20px;
+}
+/* fraction - относительная величина 1fr / 2fr etc.
+  minmax()
+    repeat(4, величина(абсолютная или относительная)
+  */
+
+  .item1 {
+background-color: brown;
+grid-column-start: 2;
+grid-column-end: 4; 
+  /* grid-column: 2/4;  */
+  } 
+  .item5 {
+    background-color: rgb(204, 177, 25);
+    grid-column: 1/4;
+  }
+  .item8 {
+    background-color: rgb(45, 83, 83);
+    grid-row: 4/6;
+   grid-column: 3/3;
+  }
