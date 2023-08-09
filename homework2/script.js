@@ -1,4 +1,4 @@
-
+const section = document.querySelector('section')
 const cartItems = [
     { name: 'Apple', price: 120, quantity: 3 },
     { name: 'Banana', price: 50, quantity: 5 },
@@ -16,4 +16,4 @@ const cartItems1 = cartItems.map((el) => `
 </div>
 `);
 
-document.body.innerHTML = cartItems1.join('');
+section.innerHTML = cartItems1.join('');
