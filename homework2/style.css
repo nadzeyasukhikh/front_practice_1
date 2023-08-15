@@ -4,25 +4,96 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url(./img/img.jpg);
+    background: url(./img/fruts5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section {
-    text-align: center;
     display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    min-width: 300px;
     justify-content: center;
-    gap: 20px;
-    background-color: rgb(238, 107, 19); 
-    max-width: 700px;
-    margin: auto; 
-    margin-top: 10%;
+}
+
+.cards {
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    width: 180px;
+    margin-top: 100px;
+}
+
+
+.btnCart {
+    width: 25px;
+    height: 25px;
+    background: url(./img/btn.png);
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    margin: 2px;
+}
+
+.addBasc {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    margin-left: 80%;
+}
+
+.header {
+
+    justify-content: center;
+    margin-top: 50px;
+   
+    text-align: center;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    align-items: center;
+    
+}
+h1 {
+    color: #080808;
+    font-weight: 900;
+    
+    
+}
+h4 {
+    color: #141410e8;  
+    font-weight: 500;
+    font-size: 25px;
+}
+.prdQuant, .prdPrice {
+    color: #141410e8;  
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 20px;    
+}
+
+
+button {
+    width: 100px;
+    height: 30px;
+    box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    border: none;
     border-radius: 5px;
-    
+    background: transparent;
+    color: #141410e8;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 10px;
 }
-
-div {
-    margin-bottom: 30px;
-    margin-top: 30px;
-    
-}
-
