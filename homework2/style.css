@@ -51,7 +51,7 @@ section {
 
 .header {
     max-width: 500px;
-margin: auto;
+    margin: auto;
     justify-content: center;
     margin-top: 50px;
     text-align: center;
@@ -62,30 +62,34 @@ margin: auto;
     box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
     -webkit-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
-    
+
 }
+
 h1 {
     color: #080808;
     font-weight: 900;
-    
-    
+
+
 }
+
 h4 {
-    color: #141410e8;  
+    color: #141410e8;
     font-weight: 500;
     font-size: 25px;
 }
-.prdQuant, .prdPrice {
-    color: #141410e8;  
+
+.prdQuant,
+.prdPrice {
+    color: #141410e8;
     font-weight: 500;
     font-size: 25px;
-    margin-top: 20px;    
+    margin-top: 20px;
 }
 
 
 button {
     width: 100px;
-    height: 30px;
+    height: 40px;
     box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
     -webkit-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
@@ -95,8 +99,5 @@ button {
     color: #141410e8;
     font-size: 20px;
     cursor: pointer;
-    margin-top: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 10px;
+    margin: 50px 30px 10px 30px;
 }
