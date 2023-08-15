@@ -50,15 +50,18 @@ section {
 }
 
 .header {
-
+    max-width: 500px;
+margin: auto;
     justify-content: center;
     margin-top: 50px;
-   
     text-align: center;
     background: transparent;
     backdrop-filter: blur(20px);
     border-radius: 10px;
     align-items: center;
+    box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 15px 9px 8px -4px rgba(0, 0, 0, 0.59);
     
 }
 h1 {
