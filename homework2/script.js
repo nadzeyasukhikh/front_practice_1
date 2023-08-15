@@ -80,7 +80,10 @@ function addToBasketListeners() {
   });
 }
 
- const cartItems2 = cartItems.map((el,ind ) => ({...el, id: ind }));
+ const cartItems2 = cartItems.map((el) => ({
+  ...el,
+  id: Math.floor(Math.random() * 1000000),
+ }));
 // создать две кнопки
 // одна сортирует по увеличению
 // другая по уменьшению
