@@ -27,6 +27,36 @@ const cartItems = [
   { name: "Guava", price: 65, quantity: 2 },
 ];
 
+document.getElementById("addItemForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("itemName").value;
+  const price = parseFloat(document.getElementById("itemPrice").value);
+  const quantity = parseInt(document.getElementById("itemQuantity").value);
+
+  const newItem = {
+      name: name,
+      price: price,
+      quantity: quantity
+  };
+
+  cartItems.push(newItem);
+  renderItems(); 
+
+  
+  event.target.reset();
+  
+});
+
+let cartItems2 = cartItems.map(item => {
+  return {
+      ...item,
+      id: Math.floor(Math.random() * 1000000)
+      
+  };
+});
+
+
 function renderItems() {
   section.innerHTML = cartItems
     .map(
@@ -55,12 +85,11 @@ high.addEventListener("click", () => {
   cartItems.sort((a, b) => b.price - a.price);
   renderItems();
 });
+
+
+
 let sum = 0;
 let total = 0;
-document.querySelector(".prdPrice").innerText = `products price: ${total} $`;
-document.querySelector(".prdQuant").innerText = `products quantity: ${sum}`;
-
-
 function addToBasketListeners() {
   const addToBasket = document.querySelectorAll(".addBasc button");
 
@@ -70,23 +99,14 @@ function addToBasketListeners() {
 
       total += price;
       sum += 1;
-      document.querySelector(
-        ".prdPrice"
-      ).innerText = `products  price: ${total} $`;
-      document.querySelector(
-        ".prdQuant"
-      ).innerText = `products quantity: ${sum}`;
+      document.querySelector(".prdPrice").innerText = `products  price: ${total} $`;
+      document.querySelector(".prdQuant").innerText = `products quantity: ${sum}`;
     });
   });
 }
 
- const cartItems2 = cartItems.map((el) => ({
-  ...el,
-  id: Math.floor(Math.random() * 1000000),
- }));
-// создать две кнопки
-// одна сортирует по увеличению
-// другая по уменьшению
-// выводить общее количество товаров
-// через функцию reduce выводить общую сумму товаров(price)
-// в карточке добаить кпопку в корзину
+const totalCost = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+document.querySelector(".totalPrice").innerText = `total products price: ${totalCost} $`
+document.querySelector(".totalQuant").innerText = `total products quantity: ${totalQuantity} `
+

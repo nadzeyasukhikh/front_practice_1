@@ -7,18 +7,40 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Our products</h1>
-        <div class="prdQuant">
-        <span>products quantity: 0</span>
-    </div>
-    <div class="prdPrice">
-        <span>products price: 0</span>
-    </div>
-        <button class="low">low cost</button>
-        <button class="high">high cost</button>
-    </div>
+    <main>
+        <div class="addProductsCard">
+            <form id="addItemForm">
+                <h2>Add product</h2><br>
+                <label for="itemName">Name:</label><br>
+                <input type="text" id="itemName" required><br>
+                <label for="itemPrice">Price:</label><br>
+                <input type="number" id="itemPrice" required><br>
+                <label for="itemQuantity">Quantity:</label><br>
+                <input type="number" id="itemQuantity" required><br>
+                <button type="submit">Add Product</button>
+            </form>
+        
+        </div>
+        <div class="header">
+            <h2>Our products</h2>
+            <div class="prdQuant">
+                <span>products quantity: 0</span>
+            </div>
+            <div class="prdPrice">
+                <span>products price: 0</span>
+            </div>
+            <button class="low">low cost</button>
+            <button class="high">high cost</button>
+            <div class="totalQuant">
+                <span>total products quantity: 0</span>
+            </div>
+            <div class="totalPrice">
+                <span>total products price: 0</span>
+            </div>
+        </div>
+    </main>
     <section></section>
     <script src="./script.js"></script>
 </body>
+
 </html>
