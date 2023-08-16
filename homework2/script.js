@@ -43,7 +43,8 @@ document.getElementById("addItemForm").addEventListener("submit", function(event
   cartItems.push(newItem);
   renderItems(); 
 
-  
+ 
+
   event.target.reset();
   
 });
@@ -72,6 +73,7 @@ function renderItems() {
     )
     .join("");
   addToBasketListeners();
+  updateTotalValues();
 }
 renderItems();
 
@@ -105,8 +107,9 @@ function addToBasketListeners() {
   });
 }
 
+function updateTotalValues() {
 const totalCost = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-document.querySelector(".totalPrice").innerText = `total products price: ${totalCost} $`
-document.querySelector(".totalQuant").innerText = `total products quantity: ${totalQuantity} `
-
+document.querySelector(".totalPrice").innerText = `total products price: ${totalCost} $`;
+document.querySelector(".totalQuant").innerText = `total products quantity: ${totalQuantity} `;
+}
