@@ -65,6 +65,7 @@ function renderItems() {
 <div class="cards">
 <h2>${el.name}</h2>
 <h4> price: ${el.price} $</h4>
+<h4> quantity: ${el.quantity} </h4>
 <div class="addBasc">
 <button class="btnCart" data-price="${el.price}" > </button>
 </div>
