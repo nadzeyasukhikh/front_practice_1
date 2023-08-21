@@ -25,7 +25,12 @@ const cartItems = [
   { name: "Honeydew", price: 70, quantity: 2 },
   { name: "Fig", price: 50, quantity: 3 },
   { name: "Guava", price: 65, quantity: 2 },
-];
+].map(item => {
+  return {
+      ...item,
+      id: Math.floor(Math.random() * 1000000)
+  };
+});
 
 document.getElementById("addItemForm").addEventListener("submit", function(event) {
   event.preventDefault();
@@ -37,25 +42,15 @@ document.getElementById("addItemForm").addEventListener("submit", function(event
   const newItem = {
       name: name,
       price: price,
-      quantity: quantity
+      quantity: quantity,
+      id: Math.floor(Math.random() * 1000000)
   };
 
   cartItems.push(newItem);
   renderItems(); 
-
- 
-
-  event.target.reset();
-  
+  event.target.reset(); 
 });
 
-let cartItems2 = cartItems.map(item => {
-  return {
-      ...item,
-      id: Math.floor(Math.random() * 1000000)
-      
-  };
-});
 
 
 function renderItems() {
@@ -67,16 +62,33 @@ function renderItems() {
 <h4> price: ${el.price} $</h4>
 <h4> quantity: ${el.quantity} </h4>
 <div class="addBasc">
-<button class="btnCart" data-price="${el.price}" > </button>
+<button class="btnDelete" data-id="${el.id}"></button>
+<button class="btnCart" data-id="${el.id}" data-price="${el.price}" > </button>
+
 </div>
 </div>
 `
     )
     .join("");
-  addToBasketListeners();
-  updateTotalValues();
-}
-renderItems();
+    addToBasketListeners();
+
+    const deleteButtons = document.querySelectorAll(".btnDelete");
+    deleteButtons.forEach((button) => {
+      button.addEventListener("click", function() {
+        const itemId = parseInt(this.dataset.id);
+        const index = cartItems.findIndex(item => item.id === itemId);
+        
+        if (index !== -1) {
+          cartItems.splice(index, 1);
+          renderItems();
+        }
+      });
+    });
+  
+    updateTotalValues();
+  }
+  
+  renderItems();
 
 const low = document.querySelector(".low");
 low.addEventListener("click", () => {
@@ -91,22 +103,39 @@ high.addEventListener("click", () => {
 
 
 
-let sum = 0;
-let total = 0;
+const basket = {
+  total: 0,
+  sum: 0,
+  addedProducts: [],
+  update() {
+      document.querySelector(".prdPrice").innerText = `products price: ${this.total} $`;
+      document.querySelector(".prdQuant").innerText = `products quantity: ${this.sum}`;
+      document.querySelector(".prdName").innerHTML = `products names: <br> ${this.addedProducts.join("<br> ")}`;
+    }
+  };
+
+
 function addToBasketListeners() {
-  const addToBasket = document.querySelectorAll(".addBasc button");
+  const addToBasket = document.querySelectorAll(".btnCart ");
 
   addToBasket.forEach((button) => {
-    button.addEventListener("click", function () {
-      const price = parseFloat(this.dataset.price);
+      button.addEventListener("click", function () {
+          const itemId = parseInt(this.dataset.id);
+          const item = cartItems.find(item => item.id === itemId);
+          const price = parseFloat(this.dataset.price);
 
-      total += price;
-      sum += 1;
-      document.querySelector(".prdPrice").innerText = `products  price: ${total} $`;
-      document.querySelector(".prdQuant").innerText = `products quantity: ${sum}`;
-    });
+          basket.total += price;
+          basket.sum += 1;
+          basket.addedProducts.push(item.name);
+          basket.update();
+
+          
+      });
   });
 }
+
+
+
 
 function updateTotalValues() {
 const totalCost = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
