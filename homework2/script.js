@@ -1,4 +1,8 @@
 const section = document.querySelector("section");
+const addItemForm = document.getElementById("addItemForm")
+const prdPrice = document.querySelector(".prdPrice")
+const prdQuant = document.querySelector(".prdQuant")
+const prdName = document.querySelector(".prdName")
 const cartItems = [
   { name: "Apple", price: 120, quantity: 3 },
   { name: "Banana", price: 50, quantity: 5 },
@@ -32,7 +36,7 @@ const cartItems = [
   };
 });
 
-document.getElementById("addItemForm").addEventListener("submit", function(event) {
+addItemForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
   const name = document.getElementById("itemName").value;
@@ -90,13 +94,13 @@ function renderItems() {
   
   renderItems();
 
-const low = document.querySelector(".low");
-low.addEventListener("click", () => {
+const lowPrice = document.querySelector(".low");
+lowPrice.addEventListener("click", () => {
   cartItems.sort((a, b) => a.price - b.price);
   renderItems();
 });
-const high = document.querySelector(".high");
-high.addEventListener("click", () => {
+const highPrice = document.querySelector(".high");
+highPrice.addEventListener("click", () => {
   cartItems.sort((a, b) => b.price - a.price);
   renderItems();
 });
@@ -108,9 +112,9 @@ const basket = {
   sum: 0,
   addedProducts: [],
   update() {
-      document.querySelector(".prdPrice").innerText = `products price: ${this.total} $`;
-      document.querySelector(".prdQuant").innerText = `products quantity: ${this.sum}`;
-      document.querySelector(".prdName").innerHTML = `products names: <br> ${this.addedProducts.join("<br> ")}`;
+    prdPrice.innerText = `products price: ${this.total} $`;
+    prdQuant.innerText = `products quantity: ${this.sum}`;
+    prdName.innerHTML = `products names: <br> ${this.addedProducts.join("<br> ")}`;
     }
   };
 
@@ -138,8 +142,10 @@ function addToBasketListeners() {
 
 
 function updateTotalValues() {
+  const totalPrice = document.querySelector(".totalPrice")
+  const totalQuant = document.querySelector(".totalQuant")
 const totalCost = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-document.querySelector(".totalPrice").innerText = `total products price: ${totalCost} $`;
-document.querySelector(".totalQuant").innerText = `total products quantity: ${totalQuantity} `;
+totalPrice.innerText = `total products price: ${totalCost} $`;
+totalQuant.innerText = `total products quantity: ${totalQuantity} `;
 }
