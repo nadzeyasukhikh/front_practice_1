@@ -36,7 +36,7 @@ const cartItems = [
   };
 });
 
-addItemForm.addEventListener("submit", function(event) {
+addItemForm.addEventListener("submit", event => {
   event.preventDefault();
 
   const name = document.getElementById("itemName").value;
@@ -53,6 +53,7 @@ addItemForm.addEventListener("submit", function(event) {
   cartItems.push(newItem);
   renderItems(); 
   event.target.reset(); 
+  basket.update();
 });
 
 
@@ -61,25 +62,47 @@ function renderItems() {
   section.innerHTML = cartItems
     .map(
       (el) => `
-<div class="cards">
-<h2>${el.name}</h2>
-<h4> price: ${el.price} $</h4>
-<h4> quantity: ${el.quantity} </h4>
-<div class="addBasc">
-<button class="btnDelete" data-id="${el.id}"></button>
-<button class="btnCart" data-id="${el.id}" data-price="${el.price}" > </button>
-
-</div>
-</div>
+      <div class="cards">
+      <h2>${el.name}</h2>
+      <h4> price: ${el.price} $</h4>
+      <div class="quantityControl">
+          <button class="btnDecrease" data-id="${el.id}">-</button>
+          <h4 class="quantDecInc"> quantity: ${el.quantity} </h4>
+          <button class="btnIncrease" data-id="${el.id}">+</button>
+      </div>
+      <div class="addBasc">
+          <button class="btnDelete" data-id="${el.id}"></button>
+          <button class="btnCart" data-id="${el.id}" data-price="${el.price}"></button>
+      </div>
+  </div>
 `
     )
     .join("");
-    addToBasketListeners();
+ 
+   const increase = document.querySelectorAll(".btnIncrease");
+   increase.forEach((btn) => {
+     btn.addEventListener("click", (el) => {
+       const id = el.target.getAttribute("data-id");
+       const item = cartItems.find((item) => item.id == id);
+       item.quantity++;
+       renderItems();
+     });
+   });
+   const decrease = document.querySelectorAll(".btnDecrease");
+   decrease.forEach((btn) => {
+     btn.addEventListener("click", (el) => {
+       const id = el.target.getAttribute("data-id");
+       const item = cartItems.find((item) => item.id == id);
+       if (item.quantity > 0) item.quantity--;
+       renderItems();
+     });
+   });
+
 
     const deleteButtons = document.querySelectorAll(".btnDelete");
     deleteButtons.forEach((button) => {
-      button.addEventListener("click", function() {
-        const itemId = parseInt(this.dataset.id);
+      button.addEventListener("click", (el) => {
+        const itemId = parseInt(el.target.dataset.id);
         const index = cartItems.findIndex(item => item.id === itemId);
         
         if (index !== -1) {
@@ -90,6 +113,8 @@ function renderItems() {
     });
   
     updateTotalValues();
+    addToBasketListeners();
+    
   }
   
   renderItems();
@@ -119,25 +144,20 @@ const basket = {
   };
 
 
-function addToBasketListeners() {
-  const addToBasket = document.querySelectorAll(".btnCart ");
-
-  addToBasket.forEach((button) => {
-      button.addEventListener("click", function () {
-          const itemId = parseInt(this.dataset.id);
-          const item = cartItems.find(item => item.id === itemId);
-          const price = parseFloat(this.dataset.price);
-
-          basket.total += price;
-          basket.sum += 1;
-          basket.addedProducts.push(item.name);
+  function addToBasketListeners() {
+    document.querySelectorAll('.btnCart').forEach(button => {
+      button.addEventListener('click', function () {
+          const id = this.getAttribute('data-id');
+          const item = cartItems.find(i => i.id == id);
+          basket.total += item.price * item.quantity;  
+          basket.sum += item.quantity;
+          if (!basket.addedProducts.includes(item.name)) { 
+              basket.addedProducts.push(item.name);
+          }
           basket.update();
-
-          
-      });
-  });
+        });
+    });
 }
-
 
 
 
@@ -149,3 +169,5 @@ const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 totalPrice.innerText = `total products price: ${totalCost} $`;
 totalQuant.innerText = `total products quantity: ${totalQuantity} `;
 }
+
+
