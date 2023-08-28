@@ -118,7 +118,8 @@ function renderItems() {
         }
       });
     });
-    document.querySelectorAll('.btnCart').forEach(button => {
+    const btnForCart = document.querySelectorAll('.btnCart')
+    btnForCart.forEach(button => {
       button.addEventListener('click', function () {
           const id = this.getAttribute('data-id');
           const item = cartItems.find(item => item.id == id);
